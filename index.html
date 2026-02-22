@@ -1,252 +1,261 @@
-import React from 'react';
-import { 
-  CheckCircle2, 
-  ShieldCheck, 
-  ArrowRight,
-  AlertOctagon,
-  Skull
-} from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio 20 Dias - Morra Vitimista</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Estilos Adicionais -->
+    <style>
+        ::selection {
+            background-color: rgba(239, 68, 68, 0.3); /* selection:bg-red-500/30 */
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-950 text-slate-50 font-sans overflow-x-hidden">
 
-// --- SUBCOMPONENTES PARA MANTER O CÓDIGO ORGANIZADO ---
-
-const Section = ({ children, className = "", id = "" }) => (
-  <section id={id} className={`relative py-20 lg:py-32 ${className}`}>
-    {children}
-  </section>
-);
-
-const ImageCard = ({ image, title, desc }) => (
-  <div className="bg-white/[0.02] border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
-    <div className="h-48 w-full overflow-hidden">
-      <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
-    </div>
-    <div className="p-8">
-      <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-      <p className="text-slate-400 leading-relaxed">{desc}</p>
-    </div>
-  </div>
-);
-
-// --- COMPONENTE PRINCIPAL ---
-
-export default function App() {
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-50 font-sans selection:bg-red-500/30 overflow-x-hidden">
-      
-      {/* ================= HERO SECTION ================= */}
-      <section className="relative min-h-[90vh] flex items-center justify-center pt-20 pb-20 px-4 sm:px-6 lg:px-8">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" 
-            alt="Pessoa superando limites" 
-            className="w-full h-full object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/95 to-slate-950"></div>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative min-h-[90vh] flex items-center justify-center pt-20 pb-20 px-4 sm:px-6 lg:px-8">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="https://morravitimista.grupobhds.com/imagens/hero-bg.jpg" 
+                alt="Pessoa a superar limites" 
+                class="w-full h-full object-cover opacity-30"
+            />
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/95 to-slate-950"></div>
         </div>
 
-        {/* Glow Effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-700/20 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
+        <!-- Glow Effects -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-700/20 rounded-full blur-[150px] -z-10 pointer-events-none"></div>
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-bold uppercase tracking-widest py-2 px-4 rounded-full mb-8 backdrop-blur-md">
-            <Skull className="w-4 h-4" />
-            <span>Alerta de Choque de Realidade</span>
-          </div>
-
-          <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tight leading-[1.1] mb-8 text-white uppercase">
-            Chega de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-700">Mimimi.</span>
-          </h1>
-          
-          <p className="text-xl sm:text-2xl text-slate-300 mb-12 max-w-3xl leading-relaxed font-light">
-            O método definitivo (e sem frescura) para você enterrar o seu vitimismo, resgatar sua autoestima, dar uma voadora na estagnação profissional e parar de brigar com a sua conta bancária.
-          </p>
-
-          <a href="https://morravitimismo.grupobhds.com/comece-agora" target="_blank" rel="noopener noreferrer" className="relative group overflow-hidden rounded-full p-[2px] w-full sm:w-auto cursor-pointer">
-            <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-red-600 to-red-800 rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
-            <div className="relative bg-slate-950 px-10 py-5 rounded-full flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0">
-              <span className="font-bold text-white text-lg tracking-wide uppercase">Quero Parar de Dar Desculpas</span>
-              <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
+        <div class="relative z-10 max-w-5xl mx-auto text-center flex flex-col items-center">
+            <div class="inline-flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 text-sm font-bold uppercase tracking-widest py-2 px-4 rounded-full mb-8 backdrop-blur-md">
+                <i data-lucide="skull" class="w-4 h-4"></i>
+                <span>Alerta de Choque de Realidade</span>
             </div>
-          </a>
-          <p className="mt-4 text-sm text-slate-500 flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-500" /> 7 dias para deixar de ser chato ou seu dinheiro de volta.
-          </p>
-        </div>
-      </section>
 
-      {/* ================= SEÇÃO: DOR / PROBLEMA ================= */}
-      <Section className="bg-slate-950 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <AlertOctagon className="w-12 h-12 text-red-500 mx-auto mb-6 opacity-80" />
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Você sofre da Síndrome de "A culpa é do Universo"?</h2>
-            <p className="text-lg text-slate-400">A verdade dói, mas alguém precisa te falar: a culpa da sua vida estar parada não é do seu chefe, do governo ou do seu signo. É sua. Reconhece algum destes sintomas?</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <ImageCard 
-              image="/imagens/boleto-vencido.jpg"
-              title="O Boleto Vence, Você Chora"
-              desc="Acha que ficar tristinho e reclamar nas redes sociais paga conta? Spoiler: não paga. O dinheiro foge de quem tem medo de agir."
-            />
-            <ImageCard 
-              image="https://images.unsplash.com/photo-1541781774459-bb2af2892515?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              title="O Atleta do 'Amanhã eu Faço'"
-              desc="Medalha de ouro em procrastinação. Você deixa tudo para depois e ainda tem a audácia de dizer que o colega teve 'sorte'."
-            />
-            <ImageCard 
-              image="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              title="Autoestima de Centavos"
-              desc="Você se acha o patinho feio da vida adulta, aceita migalhas e vê gente com metade do seu talento vencendo simplesmente porque eles agem."
-            />
-          </div>
-        </div>
-      </Section>
-
-      {/* ================= SEÇÃO: SOLUÇÃO ================= */}
-      <Section className="relative overflow-hidden bg-slate-900/50">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <h1 class="text-5xl sm:text-6xl lg:text-8xl font-extrabold tracking-tight leading-[1.1] mb-8 text-white uppercase">
+                Chega de <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-red-500 to-red-700">Mimimi.</span>
+            </h1>
             
-            {/* Texto Solução */}
-            <div>
-              <div className="inline-flex items-center gap-2 text-red-400 font-bold uppercase tracking-wider text-sm mb-4">
-                <Skull className="w-5 h-5" />
-                <span>O Antídoto</span>
-              </div>
-              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-                A cura para a sua <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">vida morna e sem graça.</span>
-              </h2>
-              <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-                Este não é mais um daqueles cursinhos fofos que passam a mão na sua cabeça. O método é um arsenal pesado de ferramentas práticas para você calar a boca da sua preguiça e começar a jogar o jogo de gente grande.
-              </p>
-              
-              <ul className="space-y-4 mb-10">
-                {[
-                  "Rotinas que te tiram da cama na base da energia (e não do ódio).",
-                  "Um plano financeiro para quem cansou de ser liso.",
-                  "Vergonha na cara engarrafada em formato de checklists e planners."
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-slate-300">
-                    <CheckCircle2 className="w-6 h-6 text-red-500 shrink-0" />
-                    <span className="text-lg">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <p class="text-xl sm:text-2xl text-slate-300 mb-12 max-w-3xl leading-relaxed font-light">
+                O método definitivo (e sem frescura) para você enterrar o seu vitimismo, resgatar sua autoestima, dar uma voadora na estagnação profissional e parar de brigar com a sua conta bancária.
+            </p>
 
-            {/* Imagem Forte de Solução (Substituindo o Mockup Abstrato) */}
-            <div className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-red-900/20 group">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                alt="Pessoa confiante e de sucesso" 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute bottom-8 left-8 right-8 z-20">
-                <div className="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
-                  A SUA NOVA VERSÃO
+            <a href="https://morravitimismo.grupobhds.com/comece-agora" target="_blank" rel="noopener noreferrer" class="relative group overflow-hidden rounded-full p-[2px] w-full sm:w-auto cursor-pointer">
+                <span class="absolute inset-0 bg-gradient-to-r from-red-500 via-red-600 to-red-800 rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
+                <div class="relative bg-slate-950 px-10 py-5 rounded-full flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0">
+                    <span class="font-bold text-white text-lg tracking-wide uppercase">Quero Parar de Dar Desculpas</span>
+                    <i data-lucide="arrow-right" class="w-5 h-5 text-white group-hover:translate-x-1 transition-transform"></i>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Autoestima Blindada.</h3>
-                <p className="text-slate-300 text-sm">O resultado de quem para de dar desculpas e começa a aplicar o método.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </Section>
-
-      {/* ================= SEÇÃO: ENTREGÁVEIS (O QUE VOCÊ LEVA) ================= */}
-      <Section className="bg-slate-950 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">As suas armas contra o vitimismo</h2>
-            <p className="text-lg text-slate-400">Tudo o que você precisa para parar de patinar e começar a tratorar seus objetivos.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
-              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Livros" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
-                <h4 className="font-bold text-white text-xl mb-2">6 E-books Direto ao Ponto</h4>
-                <p className="text-sm text-slate-300">Sem enrolação. Destrave o Seu Sucesso, Liderança Implacável, Gestão do Tempo e Antivírus Financeiro.</p>
-              </div>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
-              <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planners" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
-                <h4 className="font-bold text-white text-xl mb-2">Planners e Checklists</h4>
-                <p className="text-sm text-slate-300">Planner Diário, Guia de Autocuidado e hábitos noturnos para organizar a bagunça que é a sua rotina.</p>
-              </div>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
-              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Finanças" className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
-                <h4 className="font-bold text-white text-xl mb-2">Bônus: Tapa na Conta Bancária</h4>
-                <p className="text-sm text-slate-300">Planilha Financeira Completa e Guia Metas SMART inclusos, para você parar de chegar no dia 15 sem dinheiro.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* ================= SEÇÃO: OFERTA & GARANTIA ================= */}
-      <Section id="oferta" className="relative">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-black"></div>
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-red-900/20 rounded-t-[100%] blur-[120px]"></div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3rem] p-8 sm:p-12 text-center shadow-2xl shadow-black/50">
-            
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4">Aja agora ou continue reclamando amanhã</h2>
-            <p className="text-slate-400 mb-8">O acesso completo a todo o método por menos do que você gasta pedindo lanche quando tá "tristinho".</p>
-
-            <div className="flex flex-col items-center justify-center mb-10">
-              <span className="text-lg text-slate-500 line-through mb-1">De R$ 99,90 por apenas</span>
-              <div className="flex items-start text-red-500">
-                <span className="text-3xl font-bold mt-2 mr-1">R$</span>
-                <span className="text-7xl font-extrabold tracking-tighter">49</span>
-                <span className="text-3xl font-bold mt-2 ml-1">,90</span>
-              </div>
-              <span className="text-sm text-emerald-400 font-medium mt-3 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
-                Pagamento Único. Acesso Imediato.
-              </span>
-            </div>
-
-            <a href="https://morravitimismo.grupobhds.com/comece-agora" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto relative group overflow-hidden rounded-2xl p-[1px] mb-8 inline-block cursor-pointer">
-              <span className="absolute inset-0 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-2xl opacity-100 group-hover:opacity-80 transition-opacity duration-300"></span>
-              <div className="relative bg-gradient-to-b from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 px-10 py-5 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 shadow-xl shadow-red-900/50">
-                <span className="font-bold text-white text-xl tracking-wide uppercase">Matar Meu Vitimismo Agora</span>
-                <ArrowRight className="w-6 h-6 text-white group-hover:translate-x-1 transition-transform" />
-              </div>
             </a>
+            <p class="mt-4 text-sm text-slate-500 flex items-center justify-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i> 7 dias para deixar de ser chato ou seu dinheiro de volta.
+            </p>
+        </div>
+    </section>
 
-            {/* Garantia Box */}
-            <div className="max-w-xl mx-auto bg-slate-900/80 border border-white/5 rounded-2xl p-6 text-left flex items-start gap-4">
-              <ShieldCheck className="w-12 h-12 text-emerald-500 shrink-0" />
-              <div>
-                <h4 className="text-white font-bold text-lg mb-1">Risco Zero: A Garantia Anti-Choro</h4>
-                <p className="text-sm text-slate-400 leading-relaxed">
-                  Faça sua inscrição. Se em até 7 dias você achar que quer continuar sendo a vítima da sua própria história, eu devolvo 100% do seu dinheiro. Sem mimimi, você pode voltar a culpar os astros em paz.
-                </p>
-              </div>
+    <!-- ================= SEÇÃO: DOR / PROBLEMA ================= -->
+    <section class="relative py-20 lg:py-32 bg-slate-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <i data-lucide="alert-octagon" class="w-12 h-12 text-red-500 mx-auto mb-6 opacity-80"></i>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">Você sofre da Síndrome de "A culpa é do Universo"?</h2>
+                <p class="text-lg text-slate-400">A verdade dói, mas alguém precisa te falar: a culpa da sua vida estar parada não é do seu chefe, do governo ou do seu signo. É sua. Reconhece algum destes sintomas?</p>
             </div>
 
-          </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="https://morravitimista.grupobhds.com/imagens/boleto-vencido.jpg" alt="O Boleto Vence, Você Chora" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-white mb-3">O Boleto Vence, Você Chora</h3>
+                        <p class="text-slate-400 leading-relaxed">Acha que ficar tristinho e reclamar nas redes sociais paga conta? Spoiler: não paga. O dinheiro foge de quem tem medo de agir.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="https://morravitimista.grupobhds.com/imagens/procrastinador.jpg" alt="O Atleta do 'Amanhã eu Faço'" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-white mb-3">O Atleta do 'Amanhã eu Faço'</h3>
+                        <p class="text-slate-400 leading-relaxed">Medalha de ouro em procrastinação. Você deixa tudo para depois e ainda tem a audácia de dizer que o colega teve 'sorte'.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white/[0.02] border border-white/5 rounded-3xl hover:bg-white/[0.04] transition-all duration-300 hover:-translate-y-2 group overflow-hidden">
+                    <div class="h-48 w-full overflow-hidden">
+                        <img src="https://morravitimista.grupobhds.com/imagens/autoestima-baixa.jpg" alt="Autoestima de Centavos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-xl font-bold text-white mb-3">Autoestima de Centavos</h3>
+                        <p class="text-slate-400 leading-relaxed">Você se acha o patinho feio da vida adulta, aceita migalhas e vê gente com metade do seu talento vencendo simplesmente porque eles agem.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </Section>
+    </section>
 
-      {/* Footer Simples */}
-      <footer className="border-t border-white/5 py-8 text-center text-slate-500 text-sm bg-black">
-        <p>© {new Date().getFullYear()} Morra Vitimismo. Todos os direitos reservados.</p>
-        <p className="mt-2 text-xs opacity-60">Pare de arranjar desculpas e vá agir.</p>
-      </footer>
+    <!-- ================= SEÇÃO: SOLUÇÃO ================= -->
+    <section class="relative py-20 lg:py-32 overflow-hidden bg-slate-900/50">
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Texto Solução -->
+                <div>
+                    <div class="inline-flex items-center gap-2 text-red-400 font-bold uppercase tracking-wider text-sm mb-4">
+                        <i data-lucide="skull" class="w-5 h-5"></i>
+                        <span>O Antídoto</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
+                        A cura para a sua <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-red-600">vida morna e sem graça.</span>
+                    </h2>
+                    <p class="text-lg text-slate-300 mb-8 leading-relaxed">
+                        Este não é mais um daqueles cursinhos fofos que passam a mão na sua cabeça. O método é um arsenal pesado de ferramentas práticas para você calar a boca da sua preguiça e começar a jogar o jogo de gente grande.
+                    </p>
+                    
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-red-500 shrink-0"></i>
+                            <span class="text-lg">Rotinas que te tiram da cama na base da energia (e não do ódio).</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-red-500 shrink-0"></i>
+                            <span class="text-lg">Um plano financeiro para quem cansou de ser liso.</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-slate-300">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-red-500 shrink-0"></i>
+                            <span class="text-lg">Vergonha na cara engarrafada em formato de checklists e planners.</span>
+                        </li>
+                    </ul>
+                </div>
 
-    </div>
-  );
-}
+                <!-- Imagem Forte de Solução -->
+                <div class="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl shadow-red-900/20 group">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent z-10"></div>
+                    <img 
+                        src="https://morravitimista.grupobhds.com/imagens/sucesso-confiante.jpg" 
+                        alt="Pessoa confiante e de sucesso" 
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div class="absolute bottom-8 left-8 right-8 z-20">
+                        <div class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-3">
+                            A SUA NOVA VERSÃO
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Autoestima Blindada.</h3>
+                        <p class="text-slate-300 text-sm">O resultado de quem para de dar desculpas e começa a aplicar o método.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SEÇÃO: ENTREGÁVEIS (O QUE VOCÊ LEVA) ================= -->
+    <section class="relative py-20 lg:py-32 bg-slate-950 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">As suas armas contra o vitimismo</h2>
+                <p class="text-lg text-slate-400">Tudo o que você precisa para parar de patinar e começar a tratorar seus objetivos.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
+                    <img src="https://morravitimista.grupobhds.com/imagens/ebooks-metodo.jpg" alt="Livros" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h4 class="font-bold text-white text-xl mb-2">6 E-books Direto ao Ponto</h4>
+                        <p class="text-sm text-slate-300">Sem enrolação. Destrave o Seu Sucesso, Liderança Implacável, Gestão do Tempo e Antivírus Financeiro.</p>
+                    </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
+                    <img src="https://morravitimista.grupobhds.com/imagens/planners-foco.jpg" alt="Planners" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h4 class="font-bold text-white text-xl mb-2">Planners e Checklists</h4>
+                        <p class="text-sm text-slate-300">Planner Diário, Guia de Autocuidado e hábitos noturnos para organizar a bagunça que é a sua rotina.</p>
+                    </div>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden group border border-white/10 aspect-square">
+                    <img src="https://morravitimista.grupobhds.com/imagens/planilha-dinheiro.jpg" alt="Finanças" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-500" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent flex flex-col justify-end p-6">
+                        <h4 class="font-bold text-white text-xl mb-2">Bônus: Tapa na Conta Bancária</h4>
+                        <p class="text-sm text-slate-300">Planilha Financeira Completa e Guia Metas SMART inclusos, para você parar de chegar no dia 15 sem dinheiro.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SEÇÃO: OFERTA & GARANTIA ================= -->
+    <section id="oferta" class="relative py-20 lg:py-32">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-950 to-black"></div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-red-900/20 rounded-t-[100%] blur-[120px]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white/[0.03] backdrop-blur-2xl border border-white/10 rounded-[3rem] p-8 sm:p-12 text-center shadow-2xl shadow-black/50">
+                
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4">Aja agora ou continue reclamando amanhã</h2>
+                <p class="text-slate-400 mb-8">O acesso completo a todo o método por menos do que você gasta pedindo lanche quando tá "tristinho".</p>
+
+                <div class="flex flex-col items-center justify-center mb-10">
+                    <span class="text-lg text-slate-500 line-through mb-1">De R$ 99,90 por apenas</span>
+                    <div class="flex items-start text-red-500">
+                        <span class="text-3xl font-bold mt-2 mr-1">R$</span>
+                        <span class="text-7xl font-extrabold tracking-tighter">49</span>
+                        <span class="text-3xl font-bold mt-2 ml-1">,90</span>
+                    </div>
+                    <span class="text-sm text-emerald-400 font-medium mt-3 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">
+                        Pagamento Único. Acesso Imediato.
+                    </span>
+                </div>
+
+                <a href="https://morravitimismo.grupobhds.com/comece-agora" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto relative group overflow-hidden rounded-2xl p-[1px] mb-8 inline-block cursor-pointer">
+                    <span class="absolute inset-0 bg-gradient-to-r from-red-500 via-red-600 to-red-700 rounded-2xl opacity-100 group-hover:opacity-80 transition-opacity duration-300"></span>
+                    <div class="relative bg-gradient-to-b from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 px-10 py-5 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 shadow-xl shadow-red-900/50">
+                        <span class="font-bold text-white text-xl tracking-wide uppercase">Matar Meu Vitimismo Agora</span>
+                        <i data-lucide="arrow-right" class="w-6 h-6 text-white group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Garantia Box -->
+                <div class="max-w-xl mx-auto bg-slate-900/80 border border-white/5 rounded-2xl p-6 text-left flex items-start gap-4">
+                    <i data-lucide="shield-check" class="w-12 h-12 text-emerald-500 shrink-0"></i>
+                    <div>
+                        <h4 class="text-white font-bold text-lg mb-1">Risco Zero: A Garantia Anti-Choro</h4>
+                        <p class="text-sm text-slate-400 leading-relaxed">
+                            Faça sua inscrição. Se em até 7 dias você achar que quer continuar sendo a vítima da sua própria história, eu devolvo 100% do seu dinheiro. Sem mimimi, você pode voltar a culpar os astros em paz.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Simples -->
+    <footer class="border-t border-white/5 py-8 text-center text-slate-500 text-sm bg-black">
+        <p>© 2026 Morra Vitimismo. Todos os direitos reservados.</p>
+        <p class="mt-2 text-xs opacity-60">Pare de arranjar desculpas e vá agir.</p>
+    </footer>
+
+    <!-- Inicialização dos Ícones -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
